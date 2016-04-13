@@ -27,7 +27,7 @@ public class MoneyTest {
     }
 
     @Test
-    public void shouldAddMoneyInSameCurrency() throws Exception{
+    public void shouldAddMoneyInSameCurrency() throws Exception {
         // given
         Money money1 = new Money(20.32);
         Money money2 = new Money(1000.69);
@@ -41,7 +41,7 @@ public class MoneyTest {
     }
 
     @Test
-    public void shouldMultiplyMoney() throws Exception{
+    public void shouldMultiplyMoney() throws Exception {
         // given
         Money money = new Money(328.91);
 
@@ -53,4 +53,18 @@ public class MoneyTest {
         assertThat(result, is(equalTo(expectedResult)));
 
     }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void shouldFailToSubstractDifferentCurrencies() throws Exception {
+        // given
+        Money euros = new Money(10.50, Currency.getInstance("EUR"));
+        Money dollars = new Money(23.45, Currency.getInstance("USD"));
+
+        // when
+        Money result = euros.subtract(dollars);
+
+        // then
+        // IllegalArgumentException expected
+    }
+
 }
