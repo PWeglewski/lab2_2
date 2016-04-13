@@ -67,4 +67,17 @@ public class MoneyTest {
         // IllegalArgumentException expected
     }
 
+    @Test
+    public void shouldSubstractMoney() throws Exception{
+        // given
+        Money money1 = new Money(15.01);
+        Money money2 = new Money(32.54);
+
+        // when
+        Money result = money1.subtract(money2);
+
+        // then
+        Money expectedResult = new Money(-17.53);
+        assertThat(result, is(equalTo(expectedResult)));
+    }
 }
