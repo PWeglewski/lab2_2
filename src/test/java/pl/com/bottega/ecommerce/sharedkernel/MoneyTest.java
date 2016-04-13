@@ -39,4 +39,18 @@ public class MoneyTest {
         Money expectedResult = new Money(1021.01);
         assertThat(result, is(equalTo(expectedResult)));
     }
+
+    @Test
+    public void shouldMultiplyMoney() throws Exception{
+        // given
+        Money money = new Money(328.91);
+
+        // when
+        Money result = money.multiplyBy(3.45);
+
+        // then
+        Money expectedResult = new Money(1134.7395);
+        assertThat(result, is(equalTo(expectedResult)));
+
+    }
 }
